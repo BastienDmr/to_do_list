@@ -8,11 +8,13 @@ function App() {
   return (
     <main>
       <h1>To Do List</h1>
-      <ul>
-        {items.map((item) => (
-          <Item key={item.id} item={item} />
-        ))}
-      </ul>
+      <section>
+        <ul>
+          {items.map((item) => (
+            <Item key={item.id} item={item} />
+          ))}
+        </ul>
+      </section>
     </main>
   );
 }
