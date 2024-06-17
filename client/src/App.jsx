@@ -9,7 +9,7 @@ function App() {
     <main>
       <h1>To Do List</h1>
       <ul>
-        {items[0].map((item) => (
+        {items.map((item) => (
           <Item key={item.id} item={item} />
         ))}
       </ul>
