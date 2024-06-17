@@ -13,10 +13,10 @@ create table items (
   name varchar(255) not null,
   quantity int not null,
   category_id int not null,
-  status_id int not null
+  status_id int not null,
   FOREIGN KEY (category_id) REFERENCES category(id),
   FOREIGN KEY (status_id) REFERENCES status(id)
-)
+);
 
 INSERT INTO category (title) VALUES ('Fruits'); 
 INSERT INTO category (title) VALUES ('Légumes');
