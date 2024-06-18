@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import connexion from "./services/connexion";
+import ItemPage from "./pages/ItemPage";
 
 const router = createBrowserRouter([
   {
@@ -19,20 +20,18 @@ const router = createBrowserRouter([
       }
     },
   },
-
-  /* {
-    path: "/item/:id",
+  {
+    path: "/items/:id",
     element: <ItemPage />,
     loader: async ({ params }) => {
-      const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/items/${params.id}`
-      );
-      if (res.status === 404) {
-        throw new Response("Not Found", { status: 404 });
+      try {
+        const item = await connexion.get(`/api/items/${params.id}`);
+        return item.data;
+      } catch (error) {
+        throw new Error(error);
       }
-      return res.data;
     },
-  }, */
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
